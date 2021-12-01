@@ -44,6 +44,20 @@ class MovieSearch:
                 elif MovieSearch.searchExact(movie.title(), title) == True:
                     servicesFound.append(title)
             return servicesFound
+        
+
+        def doesExactExist(movie):
+            titles = ["DisneyPlus", "Netflix", "Amazon", "Hulu"]
+            servicesFound=[] ##Array of all of the services where that title was found
+            for title in titles:
+                if MovieSearch.searchExact(movie, title) == True :
+                    servicesFound.append(title)
+                elif MovieSearch.searchExact(movie.title(), title) == True:
+                    servicesFound.append(title)
+            if servicesFound:
+                return True
+            else:
+                return False
 
         def searchExact(movie, service):
 
